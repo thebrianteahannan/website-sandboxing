@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gay-o-Meter — Rate the vibes</title>
+    <meta
+      name="description"
+      content="Paste a chat. Get a totally scientific reading on the vibes. For entertainment only."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+
+    <main class="shell">
+      <header class="hero">
+        <p class="kicker">Paste the receipts. We'll do the rest.</p>
+        <h1 class="brand">
+          <span class="brand-line">Gay-</span>
+          <span class="brand-line accent">o-Meter</span>
+        </h1>
+        <p class="lede">
+          Drop in a Facebook chat, group text, or questionable DM. Get a reading
+          on how gay the energy is reading tonight.
+        </p>
+      </header>
+
+      <section class="analyzer" aria-labelledby="input-label">
+        <label id="input-label" class="field-label" for="chat-input">
+          Your text
+        </label>
+        <textarea
+          id="chat-input"
+          name="chat-input"
+          rows="8"
+          placeholder="Paste the conversation here… the thirstier the better."
+          spellcheck="false"
+        ></textarea>
+        <div class="actions">
+          <button type="button" id="analyze-btn" class="cta">
+            Take the reading
+          </button>
+          <button type="button" id="clear-btn" class="ghost">Clear</button>
+        </div>
+      </section>
+
+      <section
+        id="results"
+        class="results"
+        hidden
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="meter-wrap">
+          <svg
+            class="meter"
+            viewBox="0 0 280 160"
+            role="img"
+            aria-labelledby="meter-title"
+          >
+            <title id="meter-title">Gay-o-Meter gauge</title>
+            <path
+              class="meter-track"
+              d="M 30 140 A 110 110 0 0 1 250 140"
+              fill="none"
+            />
+            <path
+              id="meter-fill"
+              class="meter-fill"
+              d="M 30 140 A 110 110 0 0 1 250 140"
+              fill="none"
+              pathLength="100"
+            />
+            <line
+              id="meter-needle"
+              class="meter-needle"
+              x1="140"
+              y1="140"
+              x2="140"
+              y2="42"
+            />
+            <circle class="meter-hub" cx="140" cy="140" r="8" />
+          </svg>
+          <div class="score-block">
+            <p class="score-label">Reading</p>
+            <p class="score-value">
+              <span id="score-number">0</span><span class="score-unit">%</span>
+            </p>
+            <p id="verdict" class="verdict">Warming up…</p>
+          </div>
+        </div>
+
+        <ul id="breakdown" class="breakdown"></ul>
+        <p class="disclaimer">
+          Purely theatrical. Not a diagnosis, not a quiz result, just vibes.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
